@@ -1,14 +1,14 @@
-'use client'
+"use client";
 
-import { LoginForm } from "@/components/LoginForm";
+import { LoginSvg } from "@/components/atoms/LoginSvg";
 
-const LoginPage = () => {
-    return(
-        <div className="h-screen flex items-center justify-center bg-lamaSkyLight">
-            <div className="bg-white h-[75%] w-[30%] rounded-tl-xl rounded-bl-xl" /> 
-            <div className="bg-orange-400 h-[75%] w-[30%] rounded-tr-xl rounded-br-xl" /> 
-        </div>
-    )
-}
+const LoginPage = () => (
+  <div className="flex h-screen items-center justify-center bg-lamaSkyLight">
+    <div className="h-3/4 w-[30%] rounded-l-xl bg-white" />
+    <div className="h-3/4 w-[30%] rounded-r-xl bg-blue-600">
+      <LoginSvg />
+    </div>
+  </div>
+);
 
 export default LoginPage;
