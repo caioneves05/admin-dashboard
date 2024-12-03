@@ -1,1 +1,4 @@
-export type LoginSVgProps = {};
+export type LoginSvgProps = {
+  width: number;
+  height: number;
+};

@@ -227,6 +227,7 @@
     "jest/no-disabled-tests": "warn",
     "jest/prefer-to-have-length": "warn",
     "react-hooks/exhaustive-deps": "off",
+    "quotes": "off",
     "sort-imports": "off",
     "unicorn/no-null": "off",
     "react/jsx-no-undef": "off",
