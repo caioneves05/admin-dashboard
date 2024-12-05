@@ -14,7 +14,7 @@ export const InputForm = ({ label, type, typeInputForm }: InputFormProps) => {
   const [isShowPassword, setISshowPassword] = useState(false);
 
   return (
-    <Form.Root className="mb-4 w-full">
+    <Form.Root className="w-full">
       <Form.Field name="email" className="w-full">
         <div className="relative">
           <div

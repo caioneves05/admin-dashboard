@@ -18,8 +18,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Lama Dev School Management Dashboard",
-  description: "Next.js School Management System",
+  title: "Simba Jurídico",
+  description: "Seu sistema de gerenciamento de processos na palma da mão.",
 };
 
 // eslint-disable-next-line react/function-component-definition
