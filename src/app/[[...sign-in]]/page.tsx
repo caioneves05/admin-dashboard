@@ -12,8 +12,8 @@ const LoginPage = () => {
   const [isRememberPassword, setIsRememberPassword] = useState(true);
 
   return (
-    <div className="flex h-screen items-center justify-center bg-lamaSkyLight font-poppins">
-      <div className="flex h-3/4 w-[55%] space-x-2 rounded-3xl bg-white p-5">
+    <div className="flex h-screen items-center justify-center bg-lamaSkyLight font-poppins shadow-[2px_6px_14px_1px_rgba(0,_0,_0,_0.1)]">
+      <div className="flex h-3/4 w-[55%] space-x-2 rounded-3xl bg-white p-5 ">
         <div className="mt-40 flex h-full w-1/2 flex-col space-y-10 px-24">
           <div className="w-full">
             <SimbaIcon width={50} height={65} />
@@ -49,7 +49,7 @@ const LoginPage = () => {
           </div>
         </div>
 
-        <div className="ml-auto flex h-full w-1/2 flex-col items-center justify-center rounded-3xl bg-colors-primary-500">
+        <div className="ml-auto flex h-full w-1/2 flex-col items-center justify-center rounded-3xl bg-colors-primary-500 ">
           <div className="flex flex-col items-center justify-center space-y-16">
             <div className="space-y-3 px-14">
               <h1 className="text-start font-poppins text-4xl text-white">

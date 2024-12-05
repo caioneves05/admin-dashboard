@@ -2,8 +2,8 @@ import { type Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 
 import "./globals.css";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+import { ToastProvider } from "@/providers/ToastProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,8 +31,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br" className={`${inter.variable} ${poppins.variable}`}>
       <body>
+        <link rel="icon" href="./logo.ico" sizes="any" />
+        <ToastProvider />
         {children}
-        <ToastContainer position="bottom-right" theme="dark" />
       </body>
     </html>
   );
