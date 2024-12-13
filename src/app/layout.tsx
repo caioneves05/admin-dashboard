@@ -3,7 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 
 import "./globals.css";
 
-import { ToastProvider } from "@/providers/ToastProvider";
+import { Providers } from "./providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,8 +32,7 @@ export default function RootLayout({
     <html lang="pt-br" className={`${inter.variable} ${poppins.variable}`}>
       <body>
         <link rel="icon" href="./logo.ico" sizes="any" />
-        <ToastProvider />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -21,6 +21,6 @@ export const CheckBox = ({
         <CheckIcon className="size-5 text-white" />
       </Checkbox.Indicator>
     </Checkbox.Root>
-    <p className="text-base text-gray-400">{label}</p>
+    <p className="text-sm text-gray-400">{label}</p>
   </div>
 );

@@ -32,7 +32,7 @@ export const LoginSvg = ({ height, width }: LoginSvgProps) => (
     <path
       d="M677.22905,316.70678H514.47583a3.50978,3.50978,0,1,1,0-7.01956H677.22905a3.50978,3.50978,0,0,1,0,7.01956Z"
       transform="translate(-152.92923 -191.55603)"
-      fill="#f1581e"
+      fill="#083b8d"
     />
     <path
       d="M718.42332,337.53958H473.28156a3.50978,3.50978,0,1,1,0-7.01956H718.42332a3.50978,3.50978,0,0,1,0,7.01956Z"
@@ -51,7 +51,7 @@ export const LoginSvg = ({ height, width }: LoginSvgProps) => (
     <path
       d="M716.14183,191.556h-53a13,13,0,0,0,0,26h53a13,13,0,0,0,0-26Z"
       transform="translate(-152.92923 -191.55603)"
-      fill="#f1581e"
+      fill="#083b8d"
     />
     <circle cx="357.22267" cy="90.83442" r="11.9459" fill="#e6e6e6" />
     <polygon
@@ -109,7 +109,7 @@ export const LoginSvg = ({ height, width }: LoginSvgProps) => (
     <path
       d="M801.14183,466.556a13.01246,13.01246,0,0,0-13-13h-53a13,13,0,0,0,0,26h53A13.01245,13.01245,0,0,0,801.14183,466.556Z"
       transform="translate(-152.92923 -191.55603)"
-      fill="#f1581e"
+      fill="#083b8d"
     />
     <circle cx="431.22267" cy="193.83442" r="11.9459" fill="#e6e6e6" />
     <polygon
@@ -119,7 +119,7 @@ export const LoginSvg = ({ height, width }: LoginSvgProps) => (
     <path
       d="M165.92923,480.556h53a13,13,0,1,0,0-26h-53a13,13,0,0,0,0,26Z"
       transform="translate(-152.92923 -191.55603)"
-      fill="#f1581e"
+      fill="#083b8d"
     />
     <circle cx="219.22267" cy="193.16558" r="11.9459" fill="#e6e6e6" />
     <path
@@ -136,7 +136,7 @@ export const LoginSvg = ({ height, width }: LoginSvgProps) => (
     <path
       d="M393.43613,316.51816H369.68291a3.50978,3.50978,0,1,1,0-7.01956h23.75322a3.50978,3.50978,0,0,1,0,7.01956Z"
       transform="translate(-152.92923 -191.55603)"
-      fill="#f1581e"
+      fill="#083b8d"
     />
     <path
       d="M434.6304,337.351H328.48864a3.50978,3.50978,0,1,1,0-7.01956H434.6304a3.50978,3.50978,0,0,1,0,7.01956Z"

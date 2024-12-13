@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { type Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
 const config: Config = {
   content: [
@@ -13,6 +15,19 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      animation: {
+        aurora: "aurora 60s linear infinite",
+      },
+      keyframes: {
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
       },
       fontFamily: {
         inter: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
@@ -49,17 +64,17 @@ const config: Config = {
             900: "#BF7732",
           },
           primary: {
-            50: "#fef5ee",
-            100: "#fee8d6",
-            200: "#fbcdad",
-            300: "#f8a979",
-            400: "#f5834e",
-            500: "#f1581e",
-            600: "#e23f14",
-            700: "#bc2d12",
-            800: "#952517",
-            900: "#782216",
-            950: "#410e09",
+            50: "#e3f2fd",
+            100: "#bbdefb",
+            200: "#90caf9",
+            300: "#64b5f6",
+            400: "#42a5f5",
+            500: "#2196f3",
+            600: "#1e88e5",
+            700: "#1976d2",
+            800: "#1565c0",
+            900: "#0d47a1",
+            950: "#083b8d",
           },
           "white-lilac": {
             50: "#fbfaff",
@@ -221,6 +236,18 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
 };
+
+function addVariablesForColors({ addBase, theme }: any) {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVariables = Object.fromEntries(
+    Object.entries(allColors).map(([key, value]) => [`--${key}`, value]),
+  );
+
+  addBase({
+    ":root": newVariables,
+  });
+}
+
 export default config;
