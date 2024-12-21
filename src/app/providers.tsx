@@ -1,15 +1,17 @@
 'use client';
 
-import { ApolloProvider } from "@/apollo/provider";
-import { ToastProvider } from "@/providers/ToastProvider";
-import { PropsWithChildren } from "react";
+import { ThemeProvider } from 'next-themes';
 
+import { type PropsWithChildren } from 'react';
 
-export const Providers = ({ children }: PropsWithChildren) => {
-    return (
-        <ApolloProvider>
-          <ToastProvider />
-          {children}
-        </ApolloProvider>
-    );
-}
+import { ApolloProvider } from 'apollo/provider';
+import { ToastProvider } from './providers/ToastProvider';
+
+export const Providers = ({ children }: PropsWithChildren) => (
+  <ApolloProvider>
+    <ThemeProvider attribute="class" enableSystem>
+      <ToastProvider />
+      {children}
+    </ThemeProvider>
+  </ApolloProvider>
+);

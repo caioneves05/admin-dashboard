@@ -1,7 +1,21 @@
-import { ButtonHTMLAttributes } from "react";
-
-type ButtonTypesProps = ButtonHTMLAttributes<HTMLButtonElement>;
+import { type ReactNode, type ComponentProps } from 'react';
 
 export type ButtonProps = {
-  title: string;
-} & ButtonTypesProps
+  isLoading?: boolean;
+  children?: ReactNode;
+  isDisabled?: boolean;
+  isFullWidth?: boolean;
+  iconFirst?: JSX.Element;
+  iconSecond?: JSX.Element;
+  iconAlign?: 'left' | 'right';
+  size?: 'small' | 'large' | 'default';
+  variant?: 'solid' | 'label' | 'outline';
+  color?:
+    | 'info'
+    | 'dark'
+    | 'danger'
+    | 'primary'
+    | 'success'
+    | 'warning'
+    | 'secondary';
+} & ComponentProps<'button'>;

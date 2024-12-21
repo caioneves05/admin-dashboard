@@ -1,11 +1,9 @@
-/* eslint-disable react/no-array-index-key */
-
 "use client";
 
 import React from "react";
 
-import { cn } from "@/lib/utils/cn";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils/cn';
 
 const SVG = ({
   svgOptions,
@@ -66,38 +64,38 @@ const SVG = ({
     initial: { strokeDashoffset: 800, strokeDasharray: "50 800" },
     animate: {
       strokeDashoffset: 0,
-      strokeDasharray: "20 800",
       opacity: [0, 1, 1, 0],
+      strokeDasharray: '20 800',
     },
   };
 
   return (
     <motion.svg
-      viewBox="0 0 1440 900"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 900"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
+      xmlns="http://www.w3.org/2000/svg"
       className="absolute inset-0 size-full"
     >
       {paths.map((path, index) => (
         <motion.path
-          d={path}
-          stroke={colors[index]}
-          strokeWidth="2.3"
-          strokeLinecap="round"
-          variants={pathVariants}
-          initial="initial"
-          animate="animate"
           transition={{
-            duration: svgOptions?.duration || 10,
             ease: "linear",
-            repeat: Number.POSITIVE_INFINITY,
             repeatType: "loop",
+            repeat: Number.POSITIVE_INFINITY,
+            duration: svgOptions?.duration || 10,
             delay: Math.floor(Math.random() * 10),
             repeatDelay: Math.floor(Math.random() * 10 + 2),
           }}
+          d={path}
+          strokeWidth="2.3"
+          initial="initial"
+          animate="animate"
+          strokeLinecap="round"
+          stroke={colors[index]}
+          variants={pathVariants}
           key={`path-first-${index}`}
         />
       ))}
@@ -105,21 +103,21 @@ const SVG = ({
       {/* duplicate for more paths */}
       {paths.map((path, index) => (
         <motion.path
-          d={path}
-          stroke={colors[index]}
-          strokeWidth="2.3"
-          strokeLinecap="round"
-          variants={pathVariants}
-          initial="initial"
-          animate="animate"
           transition={{
-            duration: svgOptions?.duration || 10,
             ease: "linear",
-            repeat: Number.POSITIVE_INFINITY,
             repeatType: "loop",
+            repeat: Number.POSITIVE_INFINITY,
+            duration: svgOptions?.duration || 10,
             delay: Math.floor(Math.random() * 10),
             repeatDelay: Math.floor(Math.random() * 10 + 2),
           }}
+          d={path}
+          strokeWidth="2.3"
+          initial="initial"
+          animate="animate"
+          strokeLinecap="round"
+          stroke={colors[index]}
+          variants={pathVariants}
           key={`path-second-${index}`}
         />
       ))}
@@ -132,15 +130,19 @@ export const BackgroundLines = ({
   className,
   svgOptions,
 }: {
-  children: React.ReactNode;
   className?: string;
+  children: React.ReactNode;
   svgOptions?: {
     duration?: number;
   };
 }) => (
   <div
     className={cn(
-      "h-[20rem] md:h-screen w-full bg-white dark:bg-black",
+      `
+        h-80 w-full bg-white
+        dark:bg-black
+        md:h-screen
+      `,
       className,
     )}
   >

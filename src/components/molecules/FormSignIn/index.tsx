@@ -1,21 +1,20 @@
-/* eslint-disable import/no-default-export */
+'use client';
 
-"use client";
+import Link from 'next/link';
 
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useState } from 'react';
+import { useForm, Controller } from 'react-hook-form';
 
-import { Button } from "@/components/atoms/Button";
-import { CheckBox } from "@/components/atoms/CheckBox";
-import { InputForm } from "@/components/atoms/InputForm";
-import { SimbaIcon } from "@/components/atoms/SimbaIcon";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { zodResolver } from '@hookform/resolvers/zod';
 
-import { AuroraBackground } from "../AuroraBackground";
+import { Logo } from 'components/atoms/Logo';
+import { Button } from 'components/atoms/Button';
+import { CheckBox } from 'components/atoms/CheckBox';
+import { InputForm } from 'components/atoms/InputForm';
 
-import { formSignInSchema, type FormSignInSchemaProps } from "./types";
+import { formSignInSchema, type FormSignInSchemaProps } from './types';
 
-const FormSignIn = () => {
+export const FormSignIn = () => {
   const [isRememberPassword, setIsRememberPassword] = useState(true);
   const {
     control,
@@ -23,101 +22,162 @@ const FormSignIn = () => {
   } = useForm<FormSignInSchemaProps>({
     resolver: zodResolver(formSignInSchema),
     defaultValues: {
-      document: "",
-      password: "",
+      document: '',
+      password: '',
     },
   });
 
   return (
-    <div
-      // onSubmit={handleSubmit(onSubmit)}
-      className="flex h-[85%] w-full max-w-7xl flex-col space-x-0 rounded-3xl bg-white p-3 md:flex-row md:space-x-2"
+    <form
+      className={`
+        flex h-4/5 w-full flex-col items-center justify-center transition-all
+      `}
     >
-      <div className="mt-10 flex size-full flex-col space-y-8 px-5 md:w-[70%] md:px-24">
-        <div className="flex w-full justify-center  md:justify-start">
-          <SimbaIcon width={50} height={65} />
+      <div
+        className={`
+          flex size-full flex-col items-center justify-center space-y-12 px-5
+          md:w-2/5
+        `}
+      >
+        <div
+          className={`
+            flex w-full justify-center
+            md:justify-start
+          `}
+        >
+          <Logo size={50} />
         </div>
-        <div className="w-full space-y-2">
-          <h1 className="text-center font-poppins text-4xl text-colors-smoke-800 md:text-start">
-            Get Started Now
-          </h1>
-          <h2 className="text-center font-poppins text-lg text-gray-400 md:text-start">
-            Enter your credentials to access your account
+        <div className="w-full space-y-10">
+          <h2
+            className={`
+              relative z-20 text-left font-sans text-2xl font-bold
+              tracking-[2px] text-black
+              dark:text-white
+              lg:text-5xl
+              md:text-xl
+            `}
+          >
+            <div
+              className={`
+                relative mx-auto inline-block w-max
+                [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]
+              `}
+            >
+              <div
+                className={`
+                  absolute left-0 top-px bg-gradient-to-r
+                  from-colors-primary-500 via-colors-primary-800
+                  to-colors-primary-950 bg-clip-text bg-no-repeat py-4
+                  text-transparent
+                  dark:drop-shadow-lg
+                `}
+              >
+                <span className="">Embess flow</span>
+              </div>
+              <div
+                className={`
+                  relative bg-gradient-to-r from-colors-primary-500
+                  via-colors-primary-800 to-colors-primary-950 bg-clip-text
+                  bg-no-repeat py-4 text-transparent
+                `}
+              >
+                <span className="">Embess flow</span>
+              </div>
+            </div>
+          </h2>
+          <h2
+            className={`
+              text-center font-poppins text-lg text-gray-400
+              md:text-start
+            `}
+          >
+            Enter your credentials to a ccess your account.
           </h2>
         </div>
 
-        <div className="flex w-full items-center md:w-[95%]">
-          <div className="grow border-t border-colors-athens-gray-400" />
-          <span className="mx-4 text-gray-300">your credentials</span>
-          <div className="grow border-t border-colors-athens-gray-400" />
+        <div
+          className={`
+            flex w-full items-center
+            md:w-[95%]
+          `}
+        >
+          <div
+            className={`
+              grow border-t border-gray-300
+              dark:border-gray-50/20
+            `}
+          />
+          <span
+            className={`
+              mx-4 text-gray-300
+              dark:text-gray-50/40
+            `}
+          >
+            your credentials.
+          </span>
+          <div
+            className={`
+              grow border-t border-gray-300
+              dark:border-gray-50/20
+            `}
+          />
         </div>
 
-        <div className="flex w-full flex-col items-center justify-center space-y-3 md:w-[95%]">
-          <Controller
-            name="document"
-            control={control}
-            render={({ field: { onChange, value } }) => (
-              <InputForm
-                value={value}
-                label="Documento"
-                onChange={onChange}
-                type="document"
-                typeInputForm="text"
-                messageError={errors.document?.message}
-              />
-            )}
-          />
+        <div
+          className={`
+            flex w-full flex-col items-center justify-center space-y-7
+            md:w-[95%]
+          `}
+        >
+          <div className="flex w-full flex-col space-y-3">
+            <Controller
+              render={({ field: { value, onChange } }) => (
+                <InputForm
+                  value={value}
+                  type="document"
+                  label="Document"
+                  onChange={onChange}
+                  typeInputForm="text"
+                  messageError={errors.document?.message}
+                />
+              )}
+              name="document"
+              control={control}
+            />
 
-          <Controller
-            name="password"
-            control={control}
-            render={({ field: { onChange, value } }) => (
-              <InputForm
-                value={value}
-                onChange={onChange}
-                label="Senha"
-                type="password"
-                typeInputForm="password"
-                messageError={errors.password?.message}
-              />
-            )}
-          />
+            <Controller
+              render={({ field: { value, onChange } }) => (
+                <InputForm
+                  value={value}
+                  type="password"
+                  label="Password"
+                  onChange={onChange}
+                  typeInputForm="password"
+                  messageError={errors.password?.message}
+                />
+              )}
+              name="password"
+              control={control}
+            />
+          </div>
 
           <div className="flex w-full flex-row items-center justify-between">
             <CheckBox
+              label="Remember me"
               isRememberPassword={isRememberPassword}
               setIsRememberPassword={setIsRememberPassword}
-              label="Remember me"
             />
 
-            <p className="text-sm text-colors-primary-600">Forgot password?</p>
+            <p className="text-sm text-colors-primary-600">
+              Forgot your passowrd?
+            </p>
           </div>
 
-          <div className="w-full pt-8">
-            <Button
-              title="Login"
-              type="submit"
-              // onClick={handleSubmit(onSubmit)}
-            />
-          </div>
+          <Link href="/dashboard" className="w-full pt-8">
+            <Button isFullWidth>Login</Button>
+          </Link>
         </div>
       </div>
-
-      <AuroraBackground className="ml-auto mt-10 flex size-full flex-1 flex-col items-center justify-center rounded-3xl md:mt-0">
-        <div className="flex flex-col items-center justify-center space-y-16">
-          <div className="space-y-5 px-5 md:px-14">
-            <h1 className="text-center font-poppins text-5xl font-semibold text-white md:text-start">
-              The simplest way to manage your workforce
-            </h1>
-            <h2 className="text-center font-poppins text-2xl font-extralight text-white md:text-start">
-              Enter your credentials to access your account
-            </h2>
-          </div>
-          <div className="flex items-center justify-center" />
-        </div>
-      </AuroraBackground>
-    </div>
+    </form>
   );
 };
-
-export default FormSignIn;

@@ -14,8 +14,6 @@ export const ApolloProvider = ({ children }: PropsWithChildren) => {
   });
 
   return (
-    <ApolloProviderWrapper client={client}>
-      {children}
-    </ApolloProviderWrapper>
+    <ApolloProviderWrapper client={client}>{children}</ApolloProviderWrapper>
   );
 };

@@ -1,44 +1,121 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import { type Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
+const addVariablesForColors = ({ theme, addBase }: any) => {
+  const allColors = flattenColorPalette(theme("colors"));
+  const newVariables = Object.fromEntries(
+    Object.entries(allColors).map(([key, value]) => [`--${key}`, value]),
+  );
+
+  addBase({
+    ":root": newVariables,
+  });
+};
 
 const config: Config = {
+  darkMode: "class",
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    animation: {
+      aurora: "aurora 60s linear infinite",
+    },
+    keyframes: {
+      overlayShow: {
+        "0%": { opacity: "0" },
+        "100%": { opacity: "1" },
+      },
+      aurora: {
+        from: {
+          backgroundPosition: "50% 50%, 50% 50%",
+        },
+        to: {
+          backgroundPosition: "350% 50%, 350% 50%",
+        },
+      },
+      slideDownAndFade: {
+        "100%": {
+          opacity: "1",
+          transform: "translateY(0)",
+        },
+        "0%": {
+          opacity: "0",
+          transform: "translateY(-4px)",
+        },
+      },
+      contentShow: {
+        "100%": {
+          opacity: "1",
+          transform: "translate(-50%, -50%) scale(1)",
+        },
+        "0%": {
+          opacity: "0",
+          transform: "translate(-50%, -48%) scale(0.96)",
+        },
+      },
+      lights: {
+        "0%": {
+          color: "hsl(230, 40%, 80%)",
+          "text-shadow":
+            "0 0 1em hsla(320, 100%, 50%, 0.2), 0 0 0.125em hsla(320, 100%, 60%, 0.3), -1em -0.125em 0.5em hsla(40, 100%, 60%, 0), 1em 0.125em 0.5em hsla(200, 100%, 60%, 0)",
+        },
+        "100%": {
+          color: "hsl(230, 40%, 80%)",
+          "text-shadow":
+            "0 0 1em hsla(320, 100%, 50%, 0.2), 0 0 0.125em hsla(320, 100%, 60%, 0.3), 1em -0.125em 0.5em hsla(40, 100%, 60%, 0), -1em 0.125em 0.5em hsla(200, 100%, 60%, 0)",
+        },
+        "70%": {
+          color: "hsl(230, 80%, 90%)",
+          "text-shadow":
+            "0 0 1em hsla(320, 100%, 50%, 0.5), 0 0 0.125em hsla(320, 100%, 60%, 0.5), 0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2), -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4)",
+        },
+        "30%": {
+          color: "hsl(230, 80%, 90%)",
+          "text-shadow":
+            "0 0 1em hsla(320, 100%, 50%, 0.5), 0 0 0.125em hsla(320, 100%, 60%, 0.5), -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2), 0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4)",
+        },
+        "40%": {
+          color: "hsl(230, 100%, 95%)",
+          "text-shadow":
+            "0 0 1em hsla(320, 100%, 50%, 0.5), 0 0 0.125em hsla(320, 100%, 90%, 0.5), -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2), 0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4)",
+        },
+      },
+    },
     extend: {
+      fontFamily: {
+        inter: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+        poppins: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],
+      },
+      gridTemplateColumns: {
+        "auto-fill": "repeat(auto-fill, minmax(15.625rem, 1fr));",
+        "auto-fill-card": "repeat(auto-fill, minmax(21.094rem, 1fr));",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       animation: {
-        aurora: "aurora 60s linear infinite",
-      },
-      keyframes: {
-        aurora: {
-          from: {
-            backgroundPosition: "50% 50%, 50% 50%",
-          },
-          to: {
-            backgroundPosition: "350% 50%, 350% 50%",
-          },
-        },
-      },
-      fontFamily: {
-        inter: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
-        poppins: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],
+        lights: "lights 5s 750ms linear infinite",
+        contentShow: "contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        overlayShow: "overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        slideDownAndFade:
+          "slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
       colors: {
         lamaSky: "#C3EBFA",
-        lamaSkyLight: "#D1D8DE",
         lamaPurple: "#CFCEFF",
-        lamaPurpleLight: "#F1F0FF",
         lamaYellow: "#FAE27C",
+        lamaSkyLight: "#D1D8DE",
+        lamaPurpleLight: "#F1F0FF",
         lamaYellowLight: "#FEFCE8",
         colors: {
           danger: {
@@ -62,32 +139,6 @@ const config: Config = {
             700: "#D98739",
             800: "#CC7F36",
             900: "#BF7732",
-          },
-          primary: {
-            50: "#e3f2fd",
-            100: "#bbdefb",
-            200: "#90caf9",
-            300: "#64b5f6",
-            400: "#42a5f5",
-            500: "#2196f3",
-            600: "#1e88e5",
-            700: "#1976d2",
-            800: "#1565c0",
-            900: "#0d47a1",
-            950: "#083b8d",
-          },
-          "white-lilac": {
-            50: "#fbfaff",
-            100: "#ece8ff",
-            200: "#dcd5ff",
-            300: "#c2b4fe",
-            400: "#9c84fc",
-            500: "#7755f7",
-            600: "#5c33ea",
-            700: "#4a22ce",
-            800: "#4321a8",
-            900: "#381c87",
-            950: "#1f0764",
           },
           dark: {
             50: "#f5f6f6",
@@ -154,6 +205,19 @@ const config: Config = {
             900: "#2b3c7d",
             950: "#1e274d",
           },
+          primary: {
+            50: "#e3f2fd",
+            100: "#bbdefb",
+            200: "#90caf9",
+            300: "#64b5f6",
+            400: "#42a5f5",
+            500: "#2196f3",
+            600: "#1e88e5",
+            700: "#1976d2",
+            800: "#1565c0",
+            900: "#0d47a1",
+            950: "#083b8d",
+          },
           zumthor: {
             50: "#f4f7fa",
             100: "#e2e8f0",
@@ -219,6 +283,19 @@ const config: Config = {
             900: "#282b80",
             950: "#23235f",
           },
+          "white-lilac": {
+            50: "#fbfaff",
+            100: "#ece8ff",
+            200: "#dcd5ff",
+            300: "#c2b4fe",
+            400: "#9c84fc",
+            500: "#7755f7",
+            600: "#5c33ea",
+            700: "#4a22ce",
+            800: "#4321a8",
+            900: "#381c87",
+            950: "#1f0764",
+          },
           "athens-gray": {
             50: "#f3f4f8",
             100: "#e8eaf1",
@@ -236,18 +313,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [addVariablesForColors],
 };
-
-function addVariablesForColors({ addBase, theme }: any) {
-  const allColors = flattenColorPalette(theme("colors"));
-  const newVariables = Object.fromEntries(
-    Object.entries(allColors).map(([key, value]) => [`--${key}`, value]),
-  );
-
-  addBase({
-    ":root": newVariables,
-  });
-}
 
 export default config;
