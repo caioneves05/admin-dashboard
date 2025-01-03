@@ -1,4 +1,4 @@
-import { type LoginSvgProps } from "./types";
+import { type LoginSvgProps } from './types';
 
 export const LoginSvg = ({ width, height }: LoginSvgProps) => (
   <svg

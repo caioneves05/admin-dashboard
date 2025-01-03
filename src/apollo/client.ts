@@ -1,5 +1,5 @@
 import { setContext } from '@apollo/client/link/context';
-import { from, InMemoryCache, type ApolloClient } from "@apollo/client";
+import { from, InMemoryCache, type ApolloClient } from '@apollo/client';
 import createUploadLink from 'apollo-upload-client/createUploadLink.mjs';
 import {
   NextSSRApolloClient,

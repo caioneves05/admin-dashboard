@@ -1,4 +1,4 @@
-import { type EyeOpenIconProps } from "./types";
+import { type EyeOpenIconProps } from './types';
 
 export const EyeOpenIcon = ({ size }: EyeOpenIconProps) => (
   <svg fill="none" width={size} height={size} viewBox="0 0 24 24">

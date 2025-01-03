@@ -1,4 +1,4 @@
-import { type PasswordFormIconProps } from "./types";
+import { type PasswordFormIconProps } from './types';
 
 export const PasswordFormIcon = ({ size }: PasswordFormIconProps) => (
   <svg fill="none" width={size} height={size} viewBox="0 0 24 24">

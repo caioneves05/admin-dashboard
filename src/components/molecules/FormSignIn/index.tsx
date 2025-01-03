@@ -169,7 +169,7 @@ export const FormSignIn = () => {
             />
 
             <p className="text-sm text-colors-primary-600">
-              Forgot your passowrd?
+              Forgot your password?
             </p>
           </div>
 

@@ -1,4 +1,4 @@
-import { type DocumentFormIconProps } from "./types";
+import { type DocumentFormIconProps } from './types';
 
 export const DocumentFormIcon = ({ size }: DocumentFormIconProps) => (
   <svg fill="none" width={size} height={size} viewBox="0 0 24 24">

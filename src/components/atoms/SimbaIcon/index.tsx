@@ -1,4 +1,4 @@
-import { type SimbaIconProps } from "./types";
+import { type SimbaIconProps } from './types';
 
 export const SimbaIcon = ({ width, height }: SimbaIconProps) => (
   <svg

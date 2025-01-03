@@ -70,7 +70,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
   appearance: textfield;
 }
 
@@ -86,13 +86,13 @@ select:-webkit-autofill,
 select:-webkit-autofill:enabled,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
--webkit-text-fill-color: #fff;
-box-shadow: 0 0 0px 1000px #f5834e52 inset;
-background-color: #f5834e52;
+  -webkit-text-fill-color: #fff;
+  box-shadow: 0 0 0px 1000px #f5834e52 inset;
+  background-color: #f5834e52;
 }
 
 .marker {
-  background-image: url('/svg/location.svg');
+  background-image: url("/svg/location.svg");
   background-size: cover;
   width: 50px;
   height: 50px;
@@ -104,7 +104,7 @@ background-color: #f5834e52;
 }
 
 .mapboxgl-popup-content {
-  @apply !bg-colors-white-lilac-50
+  @apply !bg-colors-white-lilac-50;
 }
 
 .mapboxgl-popup {
@@ -156,7 +156,7 @@ background-color: #f5834e52;
 }
 
 .dark ::-webkit-scrollbar {
-  @apply bg-colors-smoke-950 transition
+  @apply bg-colors-smoke-950 transition;
 }
 
 .apexcharts-gridline {
