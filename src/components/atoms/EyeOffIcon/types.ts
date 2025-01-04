@@ -1,3 +1,5 @@
+import { type ComponentPropsWithoutRef } from 'react';
+
 export type EyeOffIconProps = {
-  size: number;
-};
+  size?: number;
+} & ComponentPropsWithoutRef<'svg'>;

@@ -32,7 +32,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
     `}
     lang="pt-br"
   >
-    <body suppressHydrationWarning>
+    <body>
       <link rel="icon" sizes="any" href="./logo.ico" />
       <Providers>{children}</Providers>
     </body>

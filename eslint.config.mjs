@@ -175,6 +175,7 @@ const config = [
       'jest/prefer-to-have-length': 'warn',
       'react/require-default-props': 'off',
       'react-hooks/exhaustive-deps': 'off',
+      'readable-tailwind/multiline': 'off',
       'react-hooks/rules-of-hooks': 'error',
       'unicorn/no-static-only-class': 'off',
       'react/jsx-props-no-spreading': 'off',
@@ -218,13 +219,6 @@ const config = [
           'prefer-inline': true,
         },
       ],
-      'readable-tailwind/multiline': [
-        'error',
-        {
-          group: 'newLine',
-        },
-      ],
-
       'import/no-extraneous-dependencies': [
         'error',
         {

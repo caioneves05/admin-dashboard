@@ -3,13 +3,18 @@ import { forwardRef, type ForwardRefRenderFunction } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import { Sidebar } from 'components/molecules/Sidebar';
+import { Header } from 'components/molecules/Header';
 import { type BaseProps } from './types';
 
 const BaseRef: ForwardRefRenderFunction<HTMLElement, BaseProps> = (
   { children, className, ...props },
   ref,
 ) => (
-  <main ref={ref} className={twMerge('w-full', className)} {...props}>
+  <main
+    ref={ref}
+    className={twMerge('w-full font-poppins', className)}
+    {...props}
+  >
     <div className="flex h-screen overflow-hidden">
       <Sidebar />
       <div
@@ -19,6 +24,7 @@ const BaseRef: ForwardRefRenderFunction<HTMLElement, BaseProps> = (
           dark:bg-colors-dark-950
         `}
       >
+        <Header />
         <div className="min-h-full">
           <div
             className={`
