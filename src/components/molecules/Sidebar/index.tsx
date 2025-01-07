@@ -22,7 +22,12 @@ export const Sidebar = () => (
         <h1 className="ml-3 text-sm text-zinc-500">Main menu</h1>
       </div>
       {sidebarTabs.map(tab => (
-        <SidebarItem key={tab.name} icon={tab.icon} title={tab.name} />
+        <SidebarItem
+          key={tab.name}
+          icon={tab.icon}
+          title={tab.name}
+          href="/dashboard/users"
+        />
       ))}
     </div>
   </div>
