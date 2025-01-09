@@ -1,3 +1,5 @@
+'use client';
+
 import { EyeOffIcon } from 'components/atoms/EyeOffIcon';
 import { SidebarItem } from 'components/atoms/SidebarItem';
 
